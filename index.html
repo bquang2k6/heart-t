@@ -12,7 +12,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
     rel="stylesheet">
-  Preview cho khi chia sẻ link
+  <!-- Preview cho khi chia sẻ link -->
   <meta property="og:title" content="Em có thích một chàng trai IT 💖" />
   <meta property="og:description" content="Một món quà nhỏ dành cho người đặc biệt ✨ Nhấn vào và chạm màn hình để nhận ❤️" />
   <meta property="og:image" content="https://ntthanh-thao.quang-tech.space/assets/img/preview.png" />
@@ -27,18 +27,31 @@
 </head>
 
 <body>
-  <audio id="bg-music" src="assets/img/(8) Phép Màu (Đàn Cá Gỗ OST) - Mounter x MAYDAYs, Minh Tốc - Official MV - YouTube (mp3cut.net).mp3"></audio>
+  <audio id="bg-music" src="assets/img/(8) Phép Màu (Đàn Cá Gỗ OST) - Mounter x MAYDAYs, Minh Tốc - Official MV - YouTube (mp3cut.net).mp3" loop></audio>
 
   <script>
-    // Lấy phần tử nhạc
     const bgMusic = document.getElementById('bg-music');
 
-    // Khi người dùng click lần đầu, bật nhạc
-    document.addEventListener('click', () => {
+    // Hàm phát nhạc (chỉ kích hoạt 1 lần)
+    function playMusic() {
       if (bgMusic.paused) {
         bgMusic.play().catch(err => console.log('Không thể phát nhạc tự động:', err));
       }
-    });
+
+      // Sau khi phát nhạc, gỡ các sự kiện để không chạy lại
+      document.removeEventListener('click', playMusic);
+      document.removeEventListener('mousemove', playMusic);
+      document.removeEventListener('touchstart', playMusic);
+      document.removeEventListener('scroll', playMusic);
+      document.removeEventListener('keydown', playMusic);
+    }
+
+    // Gán nhiều sự kiện khác nhau
+    document.addEventListener('click', playMusic);
+    document.addEventListener('mousemove', playMusic);
+    document.addEventListener('touchstart', playMusic);
+    document.addEventListener('scroll', playMusic);
+    document.addEventListener('keydown', playMusic);
   </script>
   <script type="importmap">
     {
