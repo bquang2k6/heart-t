@@ -604,6 +604,7 @@ function calculateMinimumDistanceToBorder(t, e) {
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE["Vector2"]();
 const HEART_CENTER_TARGET = new THREE["Vector3"](0, 10, 0);
+const explosionDistance = 50;
 function createHeartExplosion(t) {
   mouse.x = (t.clientX / window["innerWidth"]) * 2 - 1;
   mouse.y = (-t["clientY"] / window["innerHeight"]) * 2 + 1;
