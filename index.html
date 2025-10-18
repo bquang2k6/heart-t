@@ -27,6 +27,19 @@
 </head>
 
 <body>
+  <audio id="bg-music" src="assets/music/love.mp3"></audio>
+
+  <script>
+    // Lấy phần tử nhạc
+    const bgMusic = document.getElementById('bg-music');
+
+    // Khi người dùng click lần đầu, bật nhạc
+    document.addEventListener('click', () => {
+      if (bgMusic.paused) {
+        bgMusic.play().catch(err => console.log('Không thể phát nhạc tự động:', err));
+      }
+    });
+  </script>
   <script type="importmap">
     {
       "imports": {
